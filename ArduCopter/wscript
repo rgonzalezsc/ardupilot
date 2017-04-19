@@ -21,6 +21,7 @@ def build(bld):
             'AP_Frsky_Telem',
             'AP_IRLock',
             'AP_InertialNav',
+            'AP_JSButton',
             'AP_LandingGear',
             'AP_Menu',
             'AP_Motors',

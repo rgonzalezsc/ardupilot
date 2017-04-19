@@ -513,6 +513,136 @@ const AP_Param::Info Copter::var_info[] = {
     // @User: Advanced
     GSCALAR(fs_crash_check, "FS_CRASH_CHECK",    1),
 
+// ********************* INICIO CAMBIOS **********
+    // @Param: JS_GAIN_DEFAULT
+    // @DisplayName: Default gain at boot
+    // @Description: Default gain at boot, must be in range [JS_GAIN_MIN , JS_GAIN_MAX]
+    // @User: Standard
+    // @Range: 0.1 1.0
+    GSCALAR(gain_default, "JS_GAIN_DEFAULT", 0.5),
+
+    // @Param: JS_GAIN_MAX
+    // @DisplayName: Maximum joystick gain
+    // @Description: Maximum joystick gain
+    // @User: Standard
+    // @Range: 0.2 1.0
+    GSCALAR(maxGain, "JS_GAIN_MAX", 1.0),
+
+    // @Param: JS_GAIN_MIN
+    // @DisplayName: Minimum joystick gain
+    // @Description: Minimum joystick gain
+    // @User: Standard
+    // @Range: 0.1 0.8
+    GSCALAR(minGain, "JS_GAIN_MIN", 0.25),
+
+    // @Param: JS_GAIN_STEPS
+    // @DisplayName: Gain steps
+    // @Description: Controls the number of steps between minimum and maximum joystick gain when the gain is adjusted using buttons. Set to 1 to always use JS_GAIN_DEFAULT.
+    // @User: Standard
+    // @Range: 1 10
+    GSCALAR(numGainSettings, "JS_GAIN_STEPS", 4),
+
+    // @Param: JS_CAM_TILT_STEP
+    // @DisplayName: Camera tilt step size
+    // @Description: Size of PWM increment on camera tilt servo
+    // @User: Standard
+    // @Range: 30 400
+    GSCALAR(cam_tilt_step, "JS_CAM_TILT_STEP", 50),
+
+    // @Param: JS_LIGHTS_STEP
+    // @DisplayName: Lights step size
+    // @Description: Size of PWM increment on lights servo
+    // @User: Standard
+    // @Range: 30 400
+    GSCALAR(lights_step, "JS_LIGHTS_STEP", 100),
+
+    // @Param: JS_THR_GAIN
+    // @DisplayName: Throttle gain scalar
+    // @Description: Scalar for gain on the throttle channel
+    // @User: Standard
+    // @Range: 0.5 4.0
+    GSCALAR(throttle_gain, "JS_THR_GAIN", 1.0f),
+
+    // @Param: CAM_CENTER
+    // @DisplayName: Camera tilt mount center
+    // @Description: Servo PWM at camera center position
+    // @User: Standard
+    // @Range: 1000 2000
+    //GSCALAR(cam_tilt_center, "CAM_CENTER", 1500),
+
+    // @Param: FRAME_CONFIG
+    // @DisplayName: Frame configuration
+    // @Description: Set this parameter according to your vehicle/motor configuration
+    // @User: Standard
+    // @RebootRequired: True
+    // @Values: 0:BlueROV1, 1:Vectored, 2:Vectored_6DOF, 3:Vectored_6DOF_90, 4:SimpleROV-3, 5:SimpleROV-4, 6:SimpleROV-5, 7:Custom
+    //GSCALAR(frame_configuration, "FRAME_CONFIG", AP_Motors6DOF::SUB_FRAME_VECTORED),
+
+    // @Group: BTN0_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_0,                   "BTN0_", JSButton),
+
+    // @Group: BTN1_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_1,                   "BTN1_", JSButton),
+
+    // @Group: BTN2_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_2,                   "BTN2_", JSButton),
+
+    // @Group: BTN3_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_3,                   "BTN3_", JSButton),
+
+    // @Group: BTN4_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_4,                   "BTN4_", JSButton),
+
+    // @Group: BTN5_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_5,                   "BTN5_", JSButton),
+
+    // @Group: BTN6_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_6,                   "BTN6_", JSButton),
+
+    // @Group: BTN7_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_7,                   "BTN7_", JSButton),
+
+    // @Group: BTN8_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_8,                   "BTN8_", JSButton),
+
+    // @Group: BTN9_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_9,                   "BTN9_", JSButton),
+
+    // @Group: BTN10_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_10,                   "BTN10_", JSButton),
+
+    // @Group: BTN11_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_11,                   "BTN11_", JSButton),
+
+    // @Group: BTN12_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_12,                   "BTN12_", JSButton),
+
+    // @Group: BTN13_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_13,                   "BTN13_", JSButton),
+
+    // @Group: BTN14_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_14,                   "BTN14_", JSButton),
+
+    // @Group: BTN15_
+    // @Path: ../libraries/AP_JSButton/AP_JSButton.cpp
+    GGROUP(jbtn_15,                   "BTN15_", JSButton),
+// ********************* FIN CAMBIOS *************
+
     // RC channel
     //-----------
     // @Group: RC1_

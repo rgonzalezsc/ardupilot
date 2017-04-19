@@ -88,6 +88,7 @@
 #include <AC_InputManager/AC_InputManager.h>        // Pilot input handling library
 #include <AC_InputManager/AC_InputManager_Heli.h>   // Heli specific pilot input handling library
 #include <AP_Button/AP_Button.h>
+#include <AP_JSButton/AP_JSButton.h>   // Joystick/gamepad button function assignment
 
 // Configuration
 #include "defines.h"
@@ -312,6 +313,7 @@ private:
         int8_t radio_counter;            // number of iterations with throttle below throttle_fs_value
 
         uint32_t last_heartbeat_ms;      // the time when the last HEARTBEAT message arrived from a GCS - used for triggering gcs failsafe
+        uint32_t last_manual_control_ms; // last time MANUAL_CONTROL message arrived from GCS 
         uint32_t terrain_first_failure_ms;  // the first time terrain data access failed - used to calculate the duration of the failure
         uint32_t terrain_last_failure_ms;   // the most recent time terrain data access failed
     } failsafe;
@@ -939,6 +941,8 @@ private:
     void failsafe_radio_off_event();
     void failsafe_battery_event(void);
     void failsafe_gcs_check();
+    void set_neutral_controls(void);
+    // ** Aqui hay que añadir los checks extra del failsafe para joystick
     void failsafe_gcs_off_event(void);
     void failsafe_terrain_check();
     void failsafe_terrain_set_status(bool data_ok);
@@ -1016,6 +1020,11 @@ private:
     void init_rc_in();
     void init_rc_out();
     void enable_motor_output();
+    void init_joystick();
+    void transform_manual_control_to_rc_override(int16_t x, int16_t y, int16_t z, int16_t r, uint16_t buttons);
+    void handle_jsbutton_press(uint8_t button,bool shift=false,bool held=false);
+    JSButton* get_button(uint8_t index);
+    void default_js_buttons(void);
     void read_radio();
     void set_throttle_and_failsafe(uint16_t throttle_pwm);
     void set_throttle_zero_flag(int16_t throttle_control);
