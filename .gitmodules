@@ -3,7 +3,7 @@
 	url = git://github.com/ArduPilot/PX4Firmware.git
 [submodule "modules/PX4NuttX"]
 	path = modules/PX4NuttX
-	url = git://github.com/ArduPilot/PX4NuttX.git
+	url = git://github.com/PX4/PX4NuttX.git
 [submodule "modules/uavcan"]
 	path = modules/uavcan
 	url = git://github.com/ArduPilot/uavcan.git
